@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const test = require("./test.js")
+const todo = require("./todo.js")
 
-router.use("/test", test);
+router.use("/todo", todo);
 
 
 
