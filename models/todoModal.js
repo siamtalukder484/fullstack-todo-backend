@@ -11,6 +11,12 @@ const todoSchema = new Schema({
         require: true,
         unique: true,
     },
+    department:{
+        type: String,
+    },
+    blood:{
+        type: String,
+    },
     avater:{
         type: String,
     },

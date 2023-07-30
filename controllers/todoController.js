@@ -4,7 +4,7 @@ const Todo = require("../models/todoModal.js")
 const emailValidation = require("../helpers/emailValidation.js")
 
 let createtodoController = async (req, res) => {
-    const {fullname,email, avater,designation,idnumber} = req.body
+    const {fullname,email,department,blood,avater,designation,idnumber} = req.body
     if(!fullname){
         return res.send({error: "Please Enter your name!"})
     }
@@ -22,6 +22,8 @@ let createtodoController = async (req, res) => {
         const todo = new Todo({
             fullname,
             email,
+            department,
+            blood,
             avater,
             designation,
             idnumber
@@ -40,6 +42,10 @@ let getalltodoController = async (req, res) => {
     res.send(data)
 }
 
+let deletetodoController =  async (req, res) => {
+    console.log("delete");
+}
 
 
-module.exports = {createtodoController,getalltodoController}
+
+module.exports = {createtodoController,getalltodoController,deletetodoController}
