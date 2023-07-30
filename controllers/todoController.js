@@ -43,7 +43,21 @@ let getalltodoController = async (req, res) => {
 }
 
 let deletetodoController =  async (req, res) => {
-    console.log("delete");
+
+    const id = req.headers.id;
+
+    try{
+        const result = await Todo.deleteOne({ _id: id });
+        if (result.deletedCount === 1) {
+          res.json({ message: 'Data deleted successfully' });
+        } else {
+          res.status(404).json({ message: 'Data not found' });
+        }
+    }catch(error) {
+        res.status(500).json({ message: 'Error deleting data', error: error.message });
+    }
+    
+
 }
 
 
