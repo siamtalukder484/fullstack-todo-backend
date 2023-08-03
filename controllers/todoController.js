@@ -57,10 +57,20 @@ let deletetodoController =  async (req, res) => {
 }
 
 let updatetodoController =  async (req, res) => {
-    res.send("update");
-    console.log(req.headers.id);
-    // const id = req.headers.id;
-    // console.log(id);
+
+    const id = req.headers.id
+    const {fullname,email,designation,idnumber} = req.body
+    let updateTodo = await Todo.findOneAndUpdate (
+        {_id:id},
+        {$set:{
+            fullname: fullname,
+            email: email,
+            designation: designation,
+            idnumber: idnumber,
+        }},
+        {new: true}
+    )
+    return res.send({success: "Todo Updated Successfully"})
     
 }
 
