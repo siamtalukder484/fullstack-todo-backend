@@ -43,9 +43,7 @@ let getalltodoController = async (req, res) => {
 }
 
 let deletetodoController =  async (req, res) => {
-
     const id = req.headers.id;
-
     try{
         const result = await Todo.deleteOne({ _id: id });
         if (result.deletedCount === 1) {
@@ -56,10 +54,16 @@ let deletetodoController =  async (req, res) => {
     }catch(error) {
         res.status(500).json({ message: 'Error deleting data', error: error.message });
     }
-    
+}
 
+let updatetodoController =  async (req, res) => {
+    res.send("update");
+    console.log(req.headers.id);
+    // const id = req.headers.id;
+    // console.log(id);
+    
 }
 
 
 
-module.exports = {createtodoController,getalltodoController,deletetodoController}
+module.exports = {createtodoController,getalltodoController,deletetodoController,updatetodoController}
