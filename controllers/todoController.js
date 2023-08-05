@@ -3,8 +3,14 @@ const router = express.Router();
 const Todo = require("../models/todoModal.js")
 const emailValidation = require("../helpers/emailValidation.js")
 
+
+
+
 let createtodoController = async (req, res) => {
     const {fullname,email,department,blood,avater,designation,idnumber} = req.body
+
+    console.log(req.file,filename);
+
     if(!fullname){
         return res.send({error: "Please Enter your name!"})
     }
