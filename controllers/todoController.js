@@ -70,7 +70,7 @@ let updatetodoController =  async (req, res) => {
         }},
         {new: true}
     )
-    return res.send({success: "Todo Updated Successfully"})
+    return res.send({success: "Todo Update Successfully"})
     
 }
 
