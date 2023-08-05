@@ -62,14 +62,16 @@ let deletetodoController =  async (req, res) => {
 let updatetodoController =  async (req, res) => {
 
     const id = req.headers.id
-    const {fullname,email,designation,idnumber} = req.body
+    const {fullname,email,department,designation,idnumber,blood} = req.body
     let updateTodo = await Todo.findOneAndUpdate (
         {_id:id},
         {$set:{
             fullname: fullname,
             email: email,
+            department: department,
             designation: designation,
             idnumber: idnumber,
+            blood: blood,
         }},
         {new: true}
     )
