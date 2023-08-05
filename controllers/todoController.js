@@ -4,12 +4,10 @@ const Todo = require("../models/todoModal.js")
 const emailValidation = require("../helpers/emailValidation.js")
 
 
-
-
 let createtodoController = async (req, res) => {
     const {fullname,email,department,blood,avater,designation,idnumber} = req.body
 
-    console.log(req.file,filename);
+    // console.log(req.file.filename);
 
     if(!fullname){
         return res.send({error: "Please Enter your name!"})
@@ -33,7 +31,7 @@ let createtodoController = async (req, res) => {
             email,
             department,
             blood,
-            avater,
+            avater: `${process.env.IMAGE_PATH}/uploads/${req.file.filename}`,
             designation,
             idnumber
         });

@@ -4,6 +4,7 @@ const app = express()
 const dbConnection = require('./configuration/dbConnection.js')
 const routes = require("./routes")
 var cors = require('cors');
+const path = require('path')
 
 const http = require('http');
 const socketIO = require('socket.io');
@@ -15,6 +16,7 @@ app.use(cors())
 dbConnection()
 app.use(express.json())
 app.use(routes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 
 
