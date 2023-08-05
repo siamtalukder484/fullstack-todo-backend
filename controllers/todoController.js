@@ -14,6 +14,9 @@ let createtodoController = async (req, res) => {
     else if(!emailValidation(email)){
         return res.send({error: "Enter a valid Eamil"})
     }
+    else if(department == null){
+        return res.send({error: "Please select a department.."})
+    }
     else{
         let duplicateEmail = await Todo.find({email: email})
         if(duplicateEmail.length > 0){
