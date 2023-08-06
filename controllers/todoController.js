@@ -31,7 +31,8 @@ let createtodoController = async (req, res) => {
             email,
             department,
             blood,
-            avater: `${process.env.IMAGE_PATH}/uploads/${req.file.filename}`,
+            avater,
+            // avater: `${process.env.IMAGE_PATH}/uploads/${req.file.filename}`,
             designation,
             idnumber
         });
