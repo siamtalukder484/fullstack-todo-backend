@@ -15,7 +15,15 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + uniqueSuffix + `.${originalextention}`)
     }
   })
-  const upload = multer({ storage: storage })
+  // const upload = multer({ storage: storage })
+
+  // Set limits for file size
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 200 * 1024, // 200KB in bytes
+  },
+});
 
 
 router.post("/createtodo",upload.single('avater'), createtodoController)
